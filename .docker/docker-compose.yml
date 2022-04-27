@@ -1,0 +1,15 @@
+services:
+  cep-service:
+    container_name: cep-service
+    build:
+      dockerfile: ./.docker/Dockerfile
+      context: ./..
+    ports:
+      - '8080:8080'
+    env_file: ../.env
+    networks:
+      - iqs-network
+
+networks:
+  iqs-network:
+    driver: bridge
